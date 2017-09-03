@@ -1,3 +1,27 @@
+.content {
+  height: 100vh;
+  overflow: scroll;
+  padding: 50px;
+  text-transform: none; }
+  .content__head {
+    text-align: center; }
+  .content__images {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 50px; }
+    .content__images__image {
+      margin: 0 20px 20px 0;
+      max-width: 100%;
+      height: auto; }
+  .content__tracks {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px; }
+    .content__tracks__track {
+      width: calc(25% - 15px); }
+
 .info div {
   display: block;
   position: absolute;
@@ -13,197 +37,68 @@
   left: 0;
   height: 100%;
   width: 100%;
-  animation: loading 8800ms 2200ms;
-  animation-timing-function: steps(1);
-  animation-iteration-count: 1; }
+  background-color: transparent; }
+  .load.active {
+    background-color: black; }
+  .load h2 {
+    opacity: 0;
+    display: block; }
+    .load h2.active {
+      opacity: 1; }
 
-.load2 {
+.more {
+  display: none;
   position: absolute;
-  left: 0;
-  height: 100%;
+  bottom: 60px;
+  left: 50%;
+  font-size: 4vw;
+  transform: translatex(-50%);
+  z-index: 2;
+  cursor: pointer;
+  animation: time 1s 26s normal forwards ease-in-out; }
+
+.more__arrow {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translatex(-50%); }
+
+body {
+  font-family: 'Helvetica Neue'; }
+
+.loader {
+  display: block;
+  position: absolute;
+  top: 0;
+  z-index: 2;
   width: 100%;
-  animation: loading 8800ms 16400ms;
-  animation-timing-function: steps(1);
-  animation-iteration-count: 1; }
+  height: 100%; }
+  .loader svg {
+    display: block;
+    position: relative;
+    top: 50%;
+    transform: translatey(-50%);
+    width: 100%;
+    stroke: white;
+    stroke-width: 20px;
+    fill: transparent;
+    position: relative;
+    stroke-dasharray: 9000px;
+    stroke-dashoffset: 9000px;
+    animation: 6000ms loader infinite; }
 
-.info div:nth-child(1) {
-  animation: newloading1 2100ms 34700ms;
-  animation-timing-function: steps(1);
-  animation-iteration-count: 1; }
-
-.load h2:nth-child(1) {
-  animation: newloading1 2100ms 4300msms;
-  animation-timing-function: steps(1);
-  animation-iteration-count: 1; }
-
-.load2 h2:nth-child(1) {
-  animation: newloading1 2100ms 18600msms;
-  animation-timing-function: steps(1);
-  animation-iteration-count: 1; }
-
-.info div:nth-child(2) {
-  animation: newloading1 2100ms 36800ms;
-  animation-timing-function: steps(1);
-  animation-iteration-count: 1; }
-
-.load h2:nth-child(2) {
-  animation: newloading1 2100ms 6400msms;
-  animation-timing-function: steps(1);
-  animation-iteration-count: 1; }
-
-.load2 h2:nth-child(2) {
-  animation: newloading1 2100ms 20700msms;
-  animation-timing-function: steps(1);
-  animation-iteration-count: 1; }
-
-.info div:nth-child(3) {
-  animation: newloading1 2100ms 38900ms;
-  animation-timing-function: steps(1);
-  animation-iteration-count: 1; }
-
-.load h2:nth-child(3) {
-  animation: newloading1 2100ms 8500msms;
-  animation-timing-function: steps(1);
-  animation-iteration-count: 1; }
-
-.load2 h2:nth-child(3) {
-  animation: newloading1 2100ms 22800msms;
-  animation-timing-function: steps(1);
-  animation-iteration-count: 1; }
-
-.info div:nth-child(4) {
-  animation: newloading1 2100ms 41000ms;
-  animation-timing-function: steps(1);
-  animation-iteration-count: 1; }
-
-.load h2:nth-child(4) {
-  animation: newloading1 2100ms 10600msms;
-  animation-timing-function: steps(1);
-  animation-iteration-count: 1; }
-
-.load2 h2:nth-child(4) {
-  animation: newloading1 2100ms 24900msms;
-  animation-timing-function: steps(1);
-  animation-iteration-count: 1; }
-
-.info div:nth-child(5) {
-  animation: newloading1 2100ms 43100ms;
-  animation-timing-function: steps(1);
-  animation-iteration-count: 1; }
-
-.load h2:nth-child(5) {
-  animation: newloading1 2100ms 12700msms;
-  animation-timing-function: steps(1);
-  animation-iteration-count: 1; }
-
-.load2 h2:nth-child(5) {
-  animation: newloading1 2100ms 27000msms;
-  animation-timing-function: steps(1);
-  animation-iteration-count: 1; }
-
-.info div:nth-child(6) {
-  animation: newloading1 2100ms 45200ms;
-  animation-timing-function: steps(1);
-  animation-iteration-count: 1; }
-
-.load h2:nth-child(6) {
-  animation: newloading1 2100ms 14800msms;
-  animation-timing-function: steps(1);
-  animation-iteration-count: 1; }
-
-.load2 h2:nth-child(6) {
-  animation: newloading1 2100ms 29100msms;
-  animation-timing-function: steps(1);
-  animation-iteration-count: 1; }
-
-.info div:nth-child(7) {
-  animation: newloading1 2100ms 47300ms;
-  animation-timing-function: steps(1);
-  animation-iteration-count: 1; }
-
-.load h2:nth-child(7) {
-  animation: newloading1 2100ms 16900msms;
-  animation-timing-function: steps(1);
-  animation-iteration-count: 1; }
-
-.load2 h2:nth-child(7) {
-  animation: newloading1 2100ms 31200msms;
-  animation-timing-function: steps(1);
-  animation-iteration-count: 1; }
-
-.info div:nth-child(8) {
-  animation: newloading1 2100ms 49400ms;
-  animation-timing-function: steps(1);
-  animation-iteration-count: 1; }
-
-.load h2:nth-child(8) {
-  animation: newloading1 2100ms 19000msms;
-  animation-timing-function: steps(1);
-  animation-iteration-count: 1; }
-
-.load2 h2:nth-child(8) {
-  animation: newloading1 2100ms 33300msms;
-  animation-timing-function: steps(1);
-  animation-iteration-count: 1; }
-
-@keyframes newloading {
+@keyframes loader {
   0% {
-    background-color: black; }
-  25% {
-    background-color: transparent; }
+    stroke-dashoffset: 9000px; }
   50% {
-    background-color: black; }
-  75% {
-    background-color: transparent; } }
-
-@keyframes newloading1 {
-  0% {
-    opacity: 1; }
+    stroke-dashoffset: 0px; }
   100% {
-    opacity: 0; } }
+    stroke-dashoffset: 9000px; } }
 
-.load h2:first-child {
-  animation: loading1 2200ms 2200ms;
-  animation-timing-function: steps(1);
-  animation-iteration-count: 1; }
+video {
+  display: none; }
+  video.active {
+    display: block; }
 
-.load h2:nth-child(2) {
-  animation: loading1 2200ms 4400ms;
-  animation-timing-function: steps(1);
-  animation-iteration-count: 1; }
-
-.load h2:nth-child(3) {
-  animation: loading1 2200ms 6600ms;
-  animation-timing-function: steps(1);
-  animation-iteration-count: 1; }
-
-.load2 h2:first-child {
-  animation: loading1 2200ms 16400ms;
-  animation-timing-function: steps(1);
-  animation-iteration-count: 1; }
-
-.load2 h2:nth-child(2) {
-  animation: loading1 2200ms 18600ms;
-  animation-timing-function: steps(1);
-  animation-iteration-count: 1; }
-
-.load2 h2:nth-child(3) {
-  animation: loading1 2200ms 20800ms;
-  animation-timing-function: steps(1);
-  animation-iteration-count: 1; }
-
-@keyframes loading {
-  0% {
-    background-color: black; }
-  25% {
-    background-color: transparent; }
-  50% {
-    background-color: black; }
-  75% {
-    background-color: transparent; } }
-
-@keyframes loading1 {
-  0% {
-    opacity: 1; }
-  100% {
-    opacity: 0; } }
+.hide {
+  display: none !important; }

@@ -1,47 +1,3 @@
-var daysHolder = document.querySelector('.days__holder');
-var hoursHolder = document.querySelector('.hours__holder');
-var minutesHolder = document.querySelector('.minutes__holder');
-var secondsHolder = document.querySelector('.seconds__holder');
-var video = document.querySelector('video');
-
-video.currentTime = 20;
-
-function setTime() {
-	var startDate = new Date();
-	var endDate   = new Date('2017-11-17T10:10:00.000Z');
-	var delta = (endDate.getTime() - startDate.getTime()) / 1000;
-
-	var days = Math.floor(delta / 86400);
-	delta -= days * 86400;
-
-	// calculate (and subtract) whole hours
-	var hours = Math.floor(delta / 3600) % 24;
-	delta -= hours * 3600;
-
-	// calculate (and subtract) whole minutes
-	var minutes = Math.floor(delta / 60) % 60;
-	delta -= minutes * 60;
-
-	// what's left is seconds
-	var seconds = Math.round(delta % 60);
-
-	var time = days + ' days, ' + hours + 'hours, ' + minutes + ' minutes, ' + Math.round(seconds) + 'seconds';
-
-	daysHolder.innerHTML = days;
-	hoursHolder.innerHTML = hours;
-	minutesHolder.innerHTML = minutes;
-	secondsHolder.innerHTML = seconds;
-}
-
-var audio = document.querySelector('audio');
-
-setTime();
-
-setInterval(function () {
-	setTime();
-	console.log(audio.currentTime);
-}, 1000);
-
 var resizeTimeout;
 
 window.addEventListener('resize', function() {
@@ -91,6 +47,10 @@ function pixels() {
 
 pixels();
 
+var video = document.querySelector('video');
+
+video.currentTime = 20;
+
 document.querySelector('.more').onclick = function() {
 	document.querySelector('body').classList.add('active');
 }
@@ -98,3 +58,117 @@ document.querySelector('.more').onclick = function() {
 document.querySelector('.back').onclick = function() {
 	document.querySelector('body').classList.remove('active');
 }
+
+var audio = document.querySelector('audio');
+var loader = document.querySelector('.loader');
+
+
+var time = 0;
+
+var tickTime = 0;
+var countFrom = 0;
+var started = false;
+var counting = false;
+
+//$start: 32600;
+//$between: 2100;
+//$load1Start: 2200ms;
+//$load2Start: 16500ms;
+
+var between = 2100;
+var startOne = 2200;
+
+var blockOne = document.querySelector('.load:not(.load2)');
+var blockTwo = document.querySelector('.load2');
+
+var fromOne = 0;
+var startedOne = false;
+
+var fromTwo = 0;
+var startedTwo = false;
+
+console.log(blockTwo);
+
+function tick(ms) {
+	time = parseInt(ms);
+
+	if (counting && countFrom == 0) {
+		countFrom = time;
+	}
+
+	if (counting && !startedOne && time - countFrom >= startOne) {
+		startedOne = true;
+		fromOne = time;
+	}
+
+	if (startedOne) {
+		ourTime = time - fromOne;
+
+
+		if (ourTime <= between) {
+			blockOne.classList.add('active');
+			blockOne.childNodes[1].classList.add('active');
+		} else if (ourTime >= between && ourTime <= between * 2) {
+			blockOne.classList.remove('active');
+			blockOne.childNodes[1].classList.remove('active');
+			blockOne.childNodes[3].classList.add('active');
+		} else if (ourTime >= between * 2 && ourTime <= between * 3) {
+			blockOne.classList.add('active');
+			blockOne.childNodes[3].classList.remove('active');
+			blockOne.childNodes[5].classList.add('active');
+		} else {
+			blockOne.classList.remove('active');
+			blockOne.childNodes[5].classList.remove('active');
+		}
+	}
+
+	requestAnimationFrame(tick);
+}
+
+tick();
+
+setTimeout(function () {
+	counting = true;
+	video.classList.add('active');
+	video.play();
+	audio.play();
+	loader.classList.add('hide');
+}, 3000);
+
+var body = document.querySelector('body');
+var content = document.querySelector('.content');
+
+var deactivatedTimer = 0;
+var deactivated = false;
+
+body.addEventListener('mousewheel', function(e) {
+	if (deactivated) {
+		return;
+	}
+
+	if (body.classList.contains('active')) {
+		if (content.scrollTop == 0 && e.deltaY < -20) {
+			body.classList.remove('active');
+
+			clearTimeout(deactivatedTimer);
+
+			deactivated = true;
+
+			deactivatedTimer = setTimeout(function () {
+				deactivated = false;
+			}, 1000);
+		}
+	} else {
+		if (e.deltaY > 20) {
+			body.classList.add('active');
+
+			clearTimeout(deactivatedTimer);
+
+			deactivated = true;
+
+			deactivatedTimer = setTimeout(function () {
+				deactivated = false;
+			}, 1000);
+		}
+	}
+});

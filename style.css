@@ -193,26 +193,6 @@ h2.active {
 	font-size: 8vw;
 }
 
-.more {
-	display: none;
-	position: absolute;
-	bottom: 60px;
-	left: 50%;
-	font-size: 4vw;
-	transform: translatex(-50%);
-	z-index: 2;
-	cursor: pointer;
-	opacity: 0;
-	animation: time 1s 26s normal forwards ease-in-out;
-}
-
-.more__arrow {
-	position: absolute;
-	bottom: -40px;
-	left: 50%;
-	transform: translatex(-50%);
-}
-
 .header {
 	height: 100vh;
 	clip: rect(0, auto, auto, 0);
@@ -227,13 +207,6 @@ h2.active {
 
 .back__arrow {
 	margin-bottom: 10px;
-}
-
-.content p {
-	white-space: pre-line;
-	padding: 50px;
-	text-align: center;
-	font-size: 25px;
 }
 
 @keyframes time {

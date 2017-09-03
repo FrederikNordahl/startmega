@@ -1,0 +1,34 @@
+.content {
+    height: 100vh;
+    overflow: scroll;
+    padding: 50px;
+    text-transform: none;
+
+    &__head {
+        text-align: center;
+    }
+
+    &__images {
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 50px;
+
+        &__image {
+            margin: 0 20px 20px 0;
+            max-width: 100%;
+            height: auto;
+        }
+    }
+
+    &__tracks {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 50px;
+
+        &__track {
+            width: calc(25% - 15px);
+        }
+    }
+}
