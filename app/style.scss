@@ -1,0 +1,122 @@
+.info div {
+	display: block;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translatex(-50%) translatey(-50%);
+	font-size: 15vw;
+	text-align: center;
+	opacity: 0;
+}
+
+.load {
+	position: absolute;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	animation: loading 8800ms 2200ms;
+	animation-timing-function: steps(1);
+	animation-iteration-count: 1;
+}
+
+.load2 {
+	position: absolute;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	animation: loading 8800ms 16400ms;
+	animation-timing-function: steps(1);
+	animation-iteration-count: 1;
+}
+
+
+$start: 32600;
+$between: 2100;
+$load1Start: 2200ms;
+$load2Start: 16500ms;
+
+@for $i from 1 through 8 {
+	.info div:nth-child(#{$i}) {
+		$easing: $between + ms;
+		$thisStart: $between * $i + $start + ms;
+		animation: newloading1 #{$easing} $thisStart;
+		animation-timing-function: steps(1);
+		animation-iteration-count: 1;
+	}
+
+	.load h2:nth-child(#{$i}) {
+		$easing: $between + ms;
+		$thisStart: $between * $i + $load1Start + ms;
+		animation: newloading1 #{$easing} $thisStart;
+		animation-timing-function: steps(1);
+		animation-iteration-count: 1;
+	}
+
+	.load2 h2:nth-child(#{$i}) {
+		$easing: $between + ms;
+		$thisStart: $between * $i + $load2Start + ms;
+		animation: newloading1 #{$easing} $thisStart;
+		animation-timing-function: steps(1);
+		animation-iteration-count: 1;
+	}
+}
+
+@keyframes newloading {
+	0% {background-color: black;}
+	25% {background-color: transparent;}
+	50% {background-color: black;}
+	75% {background-color: transparent;}
+}
+
+@keyframes newloading1 {
+	0% {opacity: 1;}
+	100% {opacity: 0;}
+}
+
+.load h2:first-child {
+	animation: loading1 2200ms 2200ms;
+	animation-timing-function: steps(1);
+	animation-iteration-count: 1;
+}
+
+.load h2:nth-child(2) {
+	animation: loading1 2200ms 4400ms;
+	animation-timing-function: steps(1);
+	animation-iteration-count: 1;
+}
+
+.load h2:nth-child(3) {
+	animation: loading1 2200ms 6600ms;
+	animation-timing-function: steps(1);
+	animation-iteration-count: 1;
+}
+
+.load2 h2:first-child {
+	animation: loading1 2200ms 16400ms;
+	animation-timing-function: steps(1);
+	animation-iteration-count: 1;
+}
+
+.load2 h2:nth-child(2) {
+	animation: loading1 2200ms 18600ms;
+	animation-timing-function: steps(1);
+	animation-iteration-count: 1;
+}
+
+.load2 h2:nth-child(3) {
+	animation: loading1 2200ms 20800ms;
+	animation-timing-function: steps(1);
+	animation-iteration-count: 1;
+}
+
+@keyframes loading {
+	0% {background-color: black;}
+	25% {background-color: transparent;}
+	50% {background-color: black;}
+	75% {background-color: transparent;}
+}
+
+@keyframes loading1 {
+	0% {opacity: 1;}
+	100% {opacity: 0;}
+}
