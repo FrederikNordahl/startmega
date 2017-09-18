@@ -1,9 +1,28 @@
 <html>
 	<head>
 		<title>Startup MEGA</title>
-		<link rel="stylesheet" href="style.css">
-		<link rel="stylesheet" href="./build/style.css">
+		<link rel="stylesheet" href="style.css?dieCache1">
+		<link rel="stylesheet" href="./build/style.css?dieCache1">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script>
+			window.isReady = false;
+			window.videoReady = false;
+			window.audioReady = false;
+
+			var videoReady = function() {
+				window.videoReady = true;
+				if (window.audioReady) {
+					window.isReady = true;
+				}
+			}
+
+			var audioReady = function() {
+				window.audioReady = true;
+				if (window.videoReady) {
+					window.isReady = true;
+				}
+			}
+		</script>
 	</head>
 	<body>
 		<div class="header">
@@ -101,8 +120,8 @@
 			</div>
 			<div class="grid grid-vertical">
 			</div>
-			<video src="bg.mp4" loop muted preload></video>
-			<audio src="song.mp3" loop></audio>
+			<video src="bg.mp4" loop muted oncanplay="videoReady()"></video>
+			<audio src="new.mp3" loop oncanplay="audioReady()"></audio>
 			<div class="time">
 				<div class="days">
 					<div class="days__holder"></div>
@@ -126,24 +145,28 @@
 				<div class="more__arrow">&darr;</div>
 			</div>
 			<div class="load">
-				<h2>You</h2>
+				<h2 class="glitch" data-text="You">You</h2>
 				<h2 class="black">Remember</h2>
 				<h2>Startup Weekend?</h2>
 			</div>
 			<div class="load load2">
 				<h2>This</h2>
 				<h2 class="black">is</h2>
-				<h2 class="huge">MEGA</h2>
+				<h2 class="huge glitch" data-text="mega">MEGA</h2>
 			</div>
 			<div class="info">
-				<div>5 days</div>
+				<div>Launch your idea</div>
 				<div>400 attendees</div>
-				<div>5 dinners</div>
-				<div>5 breakfasts</div>
-				<div>400 friendships</div>
-				<div>400 hearts</div>
-				<div>800 boobs</div>
-				<div>1 winner</div>
+				<div>Startup Weekend Mega</div>
+				<div>54 hours</div>
+				<div>1 weekend</div>
+				<div>4 tracks</div>
+				<div>17th- 19th november</div>
+				<div>40+ mentors</div>
+			</div>
+			<div class="sound">
+				<img src="./sound.svg" alt="">
+				<img src="./mute.png" alt="">
 			</div>
 		</div>
 		<div class="content">
@@ -154,11 +177,11 @@
 			<h1 class="content__head">What is Startup Mega?</h1>
 			<p>Startup Mega is an annual celebration of newly funded startups and amazing people behind the teams. It is a 3 year program that is taking place in 2017, 2018 and 2019 during the Global Entrepreneurship Week in November. We want to inspire the new generation of entrepreneurs. <br> <br>Startup Mega is a week long program packed with action-oriented series of events, webinars, talks and a weekend long workshop to help attendees launch a startup and build a startup in Denmark. <br> <br>We are kicking off in November 2017 in parallel with Global Entrepreneurship Week of Denmark. We are bringing the Danish startup community together for a week and finishing with a weekend long workshop. This is what we call the lighthouse, ensuring that people can see it from afar, and openly inviting attendees from various background to join.</p>
 			<section class="content__images">
-				<img class="content__images__image" src="http://lorempixel.com/400/400/sports/" alt="">
-				<img class="content__images__image" src="http://lorempixel.com/400/400/sports/" alt="">
-				<img class="content__images__image" src="http://lorempixel.com/400/400/sports/" alt="">
-				<img class="content__images__image" src="http://lorempixel.com/400/400/sports/" alt="">
-				<img class="content__images__image" src="http://lorempixel.com/400/400/sports/" alt="">
+				<img class="content__images__image" src="./5.jpg" alt="">
+				<img class="content__images__image" src="./1.jpg" alt="">
+				<img class="content__images__image" src="./2.jpg" alt="">
+				<img class="content__images__image" src="./3.jpg" alt="">
+				<img class="content__images__image" src="./4.jpg" alt="">
 			</section>
 			<h1 class="content__head">4 in-one</h1>
 			<section class="content__tracks">
@@ -171,15 +194,15 @@
 					<p>Are you interested in changing the way we help and care about people?<br><br>We face countless numbers of challenges such as the aging society and hospitals running out of capacity. In the Health Track we will create a rare friction between business people, designers, doctors and developers to bring in new technologies which have potential of improving the healthcare system and draw attention to the new areas of Health Tech and Life Science.</p>
 				</div>
 				<div class="content__tracks__track">
-					<h1>Smart</h1>
-					<p>Are you passionate about solving big problems with small computers? Join the Smart Revolution! Smart Track means we will be focusing the ideas we select on solving problems in the space of IoT, Smart Cities and Clean Tech. With the explosion and growing number of internet enabled devices for just about any realm of life, this edition will be as broad as your imagination allows and focused on addressing the problems and opportunities related to these devices.</p>
+					<h1>Media</h1>
+					<p>Do you have an idea of how to deliver our sports, music, news, movies, TV, and gaming in a more meaningful and engaging way?<br>Or maybe these industries could benefit from today’s technology? <br><br>Join us in developing new and fresh ideas centered around the viewing and creation of our Media.</p>
 				</div>
 				<div class="content__tracks__track">
-					<h1>Smart</h1>
-					<p>Are you passionate about solving big problems with small computers? Join the Smart Revolution! Smart Track means we will be focusing the ideas we select on solving problems in the space of IoT, Smart Cities and Clean Tech. With the explosion and growing number of internet enabled devices for just about any realm of life, this edition will be as broad as your imagination allows and focused on addressing the problems and opportunities related to these devices.</p>
+					<h1>Services</h1>
+					<p>Do you also believe that multiple areas of the service industry are ripe for disruption?<br>You always wanted to change the way we do financial services like banking?<br><br>Or you think there are ways to improve how we do insurances? Join the Services tech to explore and create new solutions in fields like Fintech, Law tech, Insurance Tech and SaaS.</p>
 				</div>
 			</section>
 		</div>
-		<script src="app.js"></script>
+		<script src="app.js?dieCache1"></script>
 	</body>
 </html>

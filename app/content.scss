@@ -9,26 +9,43 @@
     }
 
     &__images {
-        display: flex;
         width: 100%;
         flex-wrap: wrap;
         justify-content: center;
         margin-top: 50px;
+        overflow: hidden;
 
         &__image {
             margin: 0 20px 20px 0;
-            max-width: 100%;
+            width: calc(50% - 10px);
             height: auto;
+            float: left;
+
+            &:nth-child(odd) {
+                margin-right: 0;
+            }
+
+            &:first-child {
+                width: 100%;
+                margin-right: 0;
+            }
         }
     }
 
     &__tracks {
         display: flex;
         justify-content: space-between;
-        margin-bottom: 50px;
+        margin-bottom: 200px;
 
         &__track {
             width: calc(25% - 15px);
+            box-shadow: 1px 1px 4px 2px #eee;
+            padding: 15px;
+            box-sizing: border-box;
+
+            h1 {
+                margin-top: 0;
+            }
         }
     }
 }
