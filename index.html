@@ -1,6 +1,7 @@
 <html>
 	<head>
 		<title>Startup MEGA</title>
+		<link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
 		<link rel="stylesheet" href="style.css?dieCache1">
 		<link rel="stylesheet" href="./build/style.css?dieCache1">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,6 +26,7 @@
 		</script>
 	</head>
 	<body>
+		<div class="grid grid-vertical"></div>
 		<div class="header">
 			<div class="loader">
 				<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
@@ -116,12 +118,7 @@
 				</svg>
 			</div>
 			<div class="overlay"></div>
-			<div class="grid grid-horizontal">
-			</div>
-			<div class="grid grid-vertical">
-			</div>
-			<video src="bg.mp4" loop muted oncanplay="videoReady()"></video>
-			<audio src="new.mp3" loop oncanplay="audioReady()"></audio>
+			<video class="mainVideo" src="bg.webm" oncanplay="videoReady()"></video>
 			<div class="time">
 				<div class="days">
 					<div class="days__holder"></div>
@@ -155,53 +152,43 @@
 				<h2 class="huge glitch" data-text="mega">MEGA</h2>
 			</div>
 			<div class="info">
-				<div>Launch your idea</div>
-				<div>400 attendees</div>
-				<div>Startup Weekend Mega</div>
-				<div>54 hours</div>
-				<div>1 weekend</div>
-				<div>4 tracks</div>
-				<div>17th- 19th november</div>
-				<div>40+ mentors</div>
+				<h2 class="black">Launch your idea</h2>
+				<h2 class="black">400 attendees</h2>
+				<h2 class="black">Startup Weekend Mega</h2>
+				<h2 class="black">54 hours</h2>
+				<h2 class="black">1 weekend</h2>
+				<h2 class="black">4 tracks</h2>
+				<h2 class="black">17th- 19th november</h2>
+				<h2 class="black">40+ mentors</h2>
 			</div>
 			<div class="sound">
 				<img src="./sound.svg" alt="">
 				<img src="./mute.png" alt="">
 			</div>
 		</div>
-		<div class="content">
+		<div class="content content--tracks">
 			<div class="back">
-				<div class="back__arrow">&uarr;</div>
-				<div>back up!</div>
 			</div>
-			<h1 class="content__head">What is Startup Mega?</h1>
-			<p>Startup Mega is an annual celebration of newly funded startups and amazing people behind the teams. It is a 3 year program that is taking place in 2017, 2018 and 2019 during the Global Entrepreneurship Week in November. We want to inspire the new generation of entrepreneurs. <br> <br>Startup Mega is a week long program packed with action-oriented series of events, webinars, talks and a weekend long workshop to help attendees launch a startup and build a startup in Denmark. <br> <br>We are kicking off in November 2017 in parallel with Global Entrepreneurship Week of Denmark. We are bringing the Danish startup community together for a week and finishing with a weekend long workshop. This is what we call the lighthouse, ensuring that people can see it from afar, and openly inviting attendees from various background to join.</p>
-			<section class="content__images">
-				<img class="content__images__image" src="./5.jpg" alt="">
-				<img class="content__images__image" src="./1.jpg" alt="">
-				<img class="content__images__image" src="./2.jpg" alt="">
-				<img class="content__images__image" src="./3.jpg" alt="">
-				<img class="content__images__image" src="./4.jpg" alt="">
-			</section>
-			<h1 class="content__head">4 in-one</h1>
-			<section class="content__tracks">
-				<div class="content__tracks__track">
-					<h1>Smart</h1>
-					<p>Are you passionate about solving big problems with small computers?<br><br>Join the Smart Revolution! Smart Track means we will be focusing the ideas we select on solving problems in the space of IoT, Smart Cities and Clean Tech. With the explosion and growing number of internet enabled devices for just about any realm of life, this edition will be as broad as your imagination allows and focused on addressing the problems and opportunities related to these devices.</p>
-				</div>
-				<div class="content__tracks__track">
-					<h1>Health</h1>
-					<p>Are you interested in changing the way we help and care about people?<br><br>We face countless numbers of challenges such as the aging society and hospitals running out of capacity. In the Health Track we will create a rare friction between business people, designers, doctors and developers to bring in new technologies which have potential of improving the healthcare system and draw attention to the new areas of Health Tech and Life Science.</p>
-				</div>
-				<div class="content__tracks__track">
-					<h1>Media</h1>
-					<p>Do you have an idea of how to deliver our sports, music, news, movies, TV, and gaming in a more meaningful and engaging way?<br>Or maybe these industries could benefit from today’s technology? <br><br>Join us in developing new and fresh ideas centered around the viewing and creation of our Media.</p>
-				</div>
-				<div class="content__tracks__track">
-					<h1>Services</h1>
-					<p>Do you also believe that multiple areas of the service industry are ripe for disruption?<br>You always wanted to change the way we do financial services like banking?<br><br>Or you think there are ways to improve how we do insurances? Join the Services tech to explore and create new solutions in fields like Fintech, Law tech, Insurance Tech and SaaS.</p>
-				</div>
-			</section>
+			<h1 class="content__head">Mega</h1>
+			<p class="content__text content__text--center">Startup Mega is an annual celebration of newly funded startups and amazing people behind the teams. It is a 3 year program that is taking place in 2017, 2018 and 2019 during the Global Entrepreneurship Week in November. We want to inspire the new generation of entrepreneurs. <br><br>Startup Mega is a week long program packed with action-oriented series of events, webinars, talks and a weekend long workshop to help attendees launch a startup and build a startup in Denmark. <br><br>We are kicking off in November 2017 in parallel with Global Entrepreneurship Week of Denmark. We are bringing the Danish startup community together for a week and finishing with a weekend long workshop. This is what we call the lighthouse, ensuring that people can see it from afar, and openly inviting attendees from various background to join.</p>
+			<video src="grid.mp4" muted autoplay loop></video>
+			<div class="test"></div>
+		</div>
+
+		<div class="content content--tracks">
+			<div class="back">
+			</div>
+			<h1 class="content__head">Tracks</h1>
+			<p class="content__text content__text--center">This year, as we're going MEGA, we will have 4 tracks running simultaneously!</p>
+			<div class="content__tracks">
+
+			</div>
+		</div>
+
+		<div class="content content--tracks">
+			<div class="back">
+			</div>
+			<h1 class="content__head">Sponsors</h1>
 		</div>
 		<script src="app.js?dieCache1"></script>
 	</body>

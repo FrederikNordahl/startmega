@@ -12,7 +12,6 @@ function pixels() {
 	var bodyH = document.body.offsetHeight;
 	var bodyW = document.body.offsetWidth;
 	var vert = document.querySelector('.grid-vertical');
-	var hor = document.querySelector('.grid-horizontal');
 
 	if (document.querySelectorAll('.grid-vertical-item')) {
 		var removes = document.querySelectorAll('.grid-vertical-item');
@@ -22,35 +21,17 @@ function pixels() {
 		}
 	}
 
-	if (document.querySelectorAll('.grid-horizontal-item')) {
-		var removes = document.querySelectorAll('.grid-horizontal-item');
-
-		for (var i = 0; i < removes.length; i++) {
-			removes[i].remove();
-		}
-	}
-
-	for (var i = 0; i < bodyH / 2; i++) {
+	for (var i = 0; i < bodyH / 4; i++) {
 		var span = document.createElement('span');
 		span.classList.add('grid-item');
 		span.classList.add('grid-vertical-item');
 		vert.appendChild(span);
 	}
-
-	for (var i = 0; i < bodyW / 2; i++) {
-		var span = document.createElement('span');
-		span.classList.add('grid-item');
-		span.classList.add('grid-horizontal-item');
-		hor.appendChild(span);
-	}
 }
 
 pixels();
 
-var video = document.querySelector('video');
-
-video.currentTime = 20;
-
+var video = document.querySelector('.mainVideo');
 
 
 var muteBtn = document.querySelector('.sound');
@@ -62,10 +43,10 @@ more.onclick = function() {
 
 muteBtn.onclick = function() {
 	if (muteBtn.classList.contains('active')) {
-		audio.volume = 1;
+		video.volume = 1;
 		muteBtn.classList.remove('active');
 	} else {
-		audio.volume = 0;
+		video.volume = 0;
 		muteBtn.classList.add('active');
 	}
 }
@@ -74,11 +55,8 @@ document.querySelector('.back').onclick = function() {
 	document.querySelector('body').classList.remove('active');
 }
 
-var audio = document.querySelector('audio');
 var loader = document.querySelector('.loader');
 
-
-audio.currentTime = 42;
 
 var time = 0;
 
@@ -93,7 +71,7 @@ var counting = false;
 //$load2Start: 16500ms;
 
 var between = 2300;
-var startOne = 6200;
+var startOne = 6100;
 var startTwo = 18000;
 var startThree = 34400;
 
@@ -123,7 +101,6 @@ function tick(ms) {
 		counting = true;
 		video.classList.add('active');
 		video.play();
-		audio.play();
 		loader.classList.add('hide');
 	}
 
@@ -181,7 +158,7 @@ function tick(ms) {
 			blockTwo.classList.remove('active');
 			blockTwo.childNodes[1].classList.remove('active');
 			blockTwo.childNodes[3].classList.add('active');
-		} else if (ourTime2 >= between * 2 && ourTime2 <= between * 3) {
+		} else if (ourTime2 >= between * 2 && ourTime2 <= between * 3 + 250) {
 			blockTwo.classList.add('active');
 			blockTwo.childNodes[3].classList.remove('active');
 			blockTwo.childNodes[5].classList.add('active');
@@ -217,30 +194,14 @@ function tick(ms) {
 
 		} else {
 			blockThree.childNodes[9].classList.remove('active');
-			more.classList.add('active');
-
-
 
 			if (!ended) {
-				video.classList.remove('active');
-				loader.classList.add('rerun');
-
-				var volume = 1;
-
-				var int = setInterval(function () {
-					volume -= .02;
-
-					if (volume < .02) {
-						volume = 0;
-						clearInterval(int);
-					}
-
-					audio.volume = volume;
-				}, 100);
 
 				setTimeout(function () {
-					video.pause();
-				}, 3000);
+					video.classList.remove('active');
+					loader.classList.add('rerun');
+					more.classList.add('active');
+				}, 5500);
 
 				ended = true;
 			}
@@ -263,29 +224,61 @@ body.addEventListener('mousewheel', function(e) {
 		return;
 	}
 
-	if (body.classList.contains('active')) {
-		if (content.scrollTop == 0 && e.deltaY < -20) {
-			body.classList.remove('active');
+	var activePage = body.getAttribute('data-active');
 
-			clearTimeout(deactivatedTimer);
+	if (!activePage && e.deltaY > 20) {
+		body.classList.add('active');
+		body.setAttribute('data-active', 1);
 
-			deactivated = true;
+		clearTimeout(deactivatedTimer);
 
-			deactivatedTimer = setTimeout(function () {
-				deactivated = false;
-			}, 1000);
+		deactivated = true;
+
+		deactivatedTimer = setTimeout(function () {
+			deactivated = false;
+		}, 1000);
+	} else if (body.classList.contains('active') && activePage == 1 && e.deltaY < -20) {
+		body.classList.remove('active');
+		body.removeAttribute('data-active');
+
+		clearTimeout(deactivatedTimer);
+
+		deactivated = true;
+
+		deactivatedTimer = setTimeout(function () {
+			deactivated = false;
+		}, 1000);
+	} else if (activePage && e.deltaY < -20) {
+		body.classList.remove('active--' + activePage);
+		activePage--;
+		body.setAttribute('data-active', activePage);
+		body.classList.add('active--' + activePage);
+
+		clearTimeout(deactivatedTimer);
+
+		deactivated = true;
+
+		deactivatedTimer = setTimeout(function () {
+			deactivated = false;
+		}, 1000);
+	} else if (activePage && e.deltaY > 20) {
+		if (activePage == 3) {
+			return;
 		}
-	} else {
-		if (e.deltaY > 20) {
-			body.classList.add('active');
 
-			clearTimeout(deactivatedTimer);
+		body.classList.remove('active--' + activePage);
+		activePage++;
+		body.setAttribute('data-active', activePage);
+		body.classList.add('active--' + activePage);
 
-			deactivated = true;
+		clearTimeout(deactivatedTimer);
 
-			deactivatedTimer = setTimeout(function () {
-				deactivated = false;
-			}, 1000);
-		}
+		deactivated = true;
+
+		deactivatedTimer = setTimeout(function () {
+			deactivated = false;
+		}, 1000);
 	}
+
+
 });
