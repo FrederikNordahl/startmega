@@ -34,10 +34,18 @@ body {
 				transform: translatey(300vh);
 			}
 		}
+
+		&--4 {
+			transform: translatey(-400vh);
+			.grid {
+				transform: translatey(400vh);
+			}
+		}
 	}
 }
 
 .grid {
+	pointer-events: none;
 	display: block;
 	width: 100%;
 	height: 100%;
@@ -61,9 +69,11 @@ body {
 	opacity: 0;
 	color: white;
 	z-index: 2;
+	pointer-events: none;
 
 	&.active {
 		opacity: 1;
+		pointer-events: default;
 	}
 }
 
@@ -73,6 +83,7 @@ body {
 	height: 100%;
 	width: 100%;
 	background-color: transparent;
+	pointer-events: none;
 
 	&.active {
 		background-color: black;
@@ -81,9 +92,11 @@ body {
 	h2 {
 		opacity: 0;
 		display: block;
+		pointer-events: none;
 
 		&.active {
 			opacity: 1;
+			pointer-events: default;
 		}
 	}
 }
@@ -151,6 +164,7 @@ body {
 	height: 100%;
 	opacity: 1;
 	transition: opacity 2100ms ease-in-out;
+	pointer-events: none;
 
 	&.hide {
 		opacity: 0;
@@ -431,4 +445,16 @@ body {
 
 .overlay.black {
 	background: black;
+}
+
+.logo {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	opacity: 0;
+	transition: opacity 2100ms ease-in-out;
+
+	&.active {
+		opacity: 1;
+	}
 }
