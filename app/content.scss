@@ -22,6 +22,10 @@
         width: 100%;
         background: linear-gradient(#000,#000,transparent);
         left: 0;
+
+        &--reverse {
+            background: linear-gradient(transparent,#000,#000);
+        }
     }
 
     &__head {
@@ -29,7 +33,7 @@
         font-size: 6vw;
         font-family: 'test';
         line-height: 1.5em;
-        background: linear-gradient(#1a2a6c, #b21f1f, #fdbb2d);
+        background: linear-gradient(#1a2a6c, #22afca, #0c75d7);
         -webkit-background-clip: text;
         -moz-background-clip: text;
         background-clip: text;
@@ -48,12 +52,20 @@
         position: relative;
         z-index: 1;
 
+        @media (max-width: 767px) {
+            font-size: 15px;
+        }
+
         &--center {
             text-align: justify;
             position: absolute;
             top: 50%;
             width: calc(100% - 100px);
             transform: translatey(-50%);
+        }
+
+        &--center-text {
+            text-align: center;
         }
     }
 

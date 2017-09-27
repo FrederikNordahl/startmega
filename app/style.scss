@@ -1,4 +1,8 @@
 @import './content.scss';
+@import './volunteers.scss';
+@import './tracks.scss';
+@import './sponsors.scss';
+@import './static.scss';
 
 * {
 	box-sizing: border-box;
@@ -17,28 +21,45 @@ body {
 	&.active {
 		transform: translatey(-100vh);
 
-		.grid {
+		.grid,
+		.overlaytest,
+		#tv {
 			transform: translatey(100vh);
 		}
 
 		&--2 {
 			transform: translatey(-200vh);
-			.grid {
+			.grid,
+			.overlaytest,
+			#tv {
 				transform: translatey(200vh);
 			}
 		}
 
 		&--3 {
 			transform: translatey(-300vh);
-			.grid {
+			.grid,
+			.overlaytest,
+			#tv {
 				transform: translatey(300vh);
 			}
 		}
 
 		&--4 {
 			transform: translatey(-400vh);
-			.grid {
+			.grid,
+			.overlaytest,
+			#tv {
 				transform: translatey(400vh);
+			}
+		}
+
+		&--5 {
+			transform: translatey(-500vh);
+			.grid,
+			.overlaytest,
+			#tv {
+				transform: translatey(500vh);
 			}
 		}
 	}
@@ -48,7 +69,7 @@ body {
 	pointer-events: none;
 	display: block;
 	width: 100%;
-	height: 100%;
+	height: 100vh;
 	position: fixed;
 	left: 0;
 	top: 0;
@@ -84,6 +105,7 @@ body {
 	width: 100%;
 	background-color: transparent;
 	pointer-events: none;
+	overflow: hidden;
 
 	&.active {
 		background-color: black;
@@ -213,15 +235,6 @@ body {
 
 	100% {
 		stroke-dashoffset: 0px;
-	}
-}
-
-.mainVideo {
-	opacity: 0;
-	transition: opacity 2100ms ease-in-out;
-
-	&.active {
-		opacity: 1;
 	}
 }
 
@@ -412,7 +425,7 @@ body {
 	position: absolute;
 	left: 0;
 	top: 0;
-	background: linear-gradient(#1a2a6c, #b21f1f, #fdbb2d);
+	background: linear-gradient(#1a2a6c, #22afca, #0c75d7);
 
 	&.yellow {
 		animation: bgc 1500ms;
@@ -453,8 +466,111 @@ body {
 	width: 100%;
 	opacity: 0;
 	transition: opacity 2100ms ease-in-out;
+	top: 50%;
+	transform: translatey(-50%);
 
 	&.active {
 		opacity: 1;
 	}
 }
+
+.mainVideo {
+	opacity: 0;
+	transition: opacity 2100ms ease-in-out;
+	width: auto;
+	height: auto;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	position: absolute;
+
+	&.active {
+		opacity: 1;
+	}
+
+	&.wubba {
+		animation: wubba 2100ms;
+		animation-timing-function: steps(1);
+	}
+}
+
+@keyframes wubba {
+	0% {
+		transform: translatex(-50%) translatey(-50%) scale(1) rotate(0deg);
+	}
+
+	33% {
+		transform: translatex(-50%) translatey(-50%) scale(1) rotate(45deg);
+	}
+
+	66% {
+		transform: translatex(-50%) translatey(-50%) scale(1) rotate(-45deg);
+	}
+
+	80% {
+		transform: scale(1.5) rotate(0deg);
+	}
+
+	100% {
+		transform: scale(2) rotate(0deg);
+	}
+}
+
+.overlaytest {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	transition: transform 600ms cubic-bezier(0.85, 0.01, 0.3, 0.99);
+	pointer-events: none;
+	z-index: 3;
+}
+
+#tv {
+	transition: transform 600ms cubic-bezier(0.85, 0.01, 0.3, 0.99);
+	pointer-events: none;
+}
+
+.playTest,
+.RePlayTest {
+	position: absolute;
+	top: 50%;
+	transform: translatey(-50%);
+	width: 100%;
+	text-align: center;
+	z-index: 2;
+	font-size: 40px;
+	display: none;
+	font-family: 'test';
+	opacity: 0;
+	animation: easeIn 2100ms ease-in-out forwards 3000ms;
+	cursor: pointer;
+
+	@media (max-width: 767px) {
+		display: block;
+	}
+
+	&.hide {
+		display: none !important;
+	}
+}
+
+.RePlayTest {
+	display: none;
+
+	&.active {
+		@media (min-width: 768px) {
+			display: block;
+		}
+	}
+}
+
+@keyframes easeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+};

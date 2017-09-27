@@ -33,26 +33,6 @@
 }
 
 
-.mainVideo {
-	width: auto;
-	height: auto;
-	min-width: 100%;
-	min-height: 100%;
-	transform: translatex(-50%) translatey(-50%);
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	background-color: pink;
-	mix-blend-mode: luminosity;
-	opacity: .7;
-	transition: opacity 100ms ease-in-out;
-}
-
-.mainVideo.active {
-	opacity: 1;
-}
-
-
 /* TEXT RELATED */
 
 h2 {

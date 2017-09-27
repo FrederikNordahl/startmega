@@ -2,8 +2,8 @@
 	<head>
 		<title>Startup MEGA</title>
 		<link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
-		<link rel="stylesheet" href="style.css?dieCache1">
-		<link rel="stylesheet" href="./build/style.css?dieCache1">
+		<link rel="stylesheet" href="style.css?dieCache4">
+		<link rel="stylesheet" href="./build/style.css?dieCache4">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<script>
 			window.isReady = false;
@@ -22,6 +22,14 @@
 				if (window.videoReady) {
 					window.isReady = true;
 				}
+			}
+
+			var clickPlay = function() {
+				document.querySelector('.mainVideo').play();
+			}
+
+			var clickRePlay = function() {
+				document.querySelector('.mainVideo').play();
 			}
 		</script>
 	</head>
@@ -117,8 +125,10 @@
 				</g>
 				</svg>
 			</div>
+			<div onClick="clickPlay()" class="playTest">START!</div>
+			<div onClick="clickRePlay()" class="RePlayTest">REPLAY!</div>
 			<div class="overlay"></div>
-			<video class="mainVideo" src="bg.webm" oncanplay="videoReady()"></video>
+			<video class="mainVideo" src="video.mp4" oncanplay="videoReady()"></video>
 			<img class="logo" src="logo.png" />
 			<div class="time">
 				<div class="days">
@@ -167,22 +177,53 @@
 				<img src="./mute.png" alt="">
 			</div>
 		</div>
-		<div class="content content--tracks">
+		<div class="content">
 			<div class="back">
 			</div>
 			<h1 class="content__head">Mega</h1>
-			<p class="content__text content__text--center">Startup Mega is an annual celebration of newly funded startups and amazing people behind the teams. It is a 3 year program that is taking place in 2017, 2018 and 2019 during the Global Entrepreneurship Week in November. We want to inspire the new generation of entrepreneurs. <br><br>Startup Mega is a week long program packed with action-oriented series of events, webinars, talks and a weekend long workshop to help attendees launch a startup and build a startup in Denmark. <br><br>We are kicking off in November 2017 in parallel with Global Entrepreneurship Week of Denmark. We are bringing the Danish startup community together for a week and finishing with a weekend long workshop. This is what we call the lighthouse, ensuring that people can see it from afar, and openly inviting attendees from various background to join.</p>
+			<p class="content__text content__text--center">We believe that meeting inspiring people and creating a kick-ass network is one of the most valuable part of any Startup Weekend. Therefore we decided to organise the biggest Startup Weekend in Europe to make sure that all of our participants will have an extraordinary experience. <br><br>Imagine it like 4 parallel Startup Weekends running at the same venue. Each tracks will have their own topics <br><br>Smart Solutions | Health | Media | Services <br><br>Each having their own Facilitators. There will be space for 100 participants in each Tracks, and we`ll make sure that you will have the chance to meet participants from other tracks. This startup weekend is for everyone!</p>
 			<video src="grid.mp4" muted autoplay loop></video>
 			<div class="test"></div>
 		</div>
 
 		<div class="content content--tracks">
-			<div class="back">
-			</div>
+			<video src="grid.mp4" muted autoplay loop></video>
+			<div class="test test--reverse"></div>
 			<h1 class="content__head">Tracks</h1>
-			<p class="content__text content__text--center">This year, as we're going MEGA, we will have 4 tracks running simultaneously!</p>
-			<div class="content__tracks">
-
+			<div class="tracks">
+				<div class="tracks__track">
+					<h1 data-text="Smart">Smart</h1>
+					<p>Are you passionate about solving big problems with small computers? Join the Smart Revolution! Smart Track means we will be focusing the ideas we select on solving problems in the space of IoT, Smart Cities and Clean Tech. With the explosion and growing number of internet enabled devices for just about any realm of life, this edition will be as broad as your imagination allows and focused on addressing the problems and opportunities related to these devices.</p>
+				</div>
+				<div class="tracks__track">
+					<h1 data-text="Health">Health</h1>
+					<p>Are you interested in changing the way we help and care about people? We face countless numbers of challenges such as the aging society and hospitals running out of capacity. In the Health Track we will create a rare friction between business people, designers, doctors and developers to bring in new technologies which have potential of improving the healthcare system and draw attention to the new areas of Health Tech and Life Science.</p>
+				</div>
+				<div class="tracks__track">
+					<h1 data-text="Media">Media</h1>
+					<p>Do you have an idea of how to deliver our sports, music, news, movies, TV, and gaming in a more meaningful and engaging way? Or maybe these industries could benefit from today's technology? Join us in developing new and fresh ideas centered around the viewing and creation of our Media.</p>
+				</div>
+				<div class="tracks__track">
+					<h1 data-text="Services">Services</h1>
+					<p>Do you also believe that multiple areas of the service industry are ripe for disruption? You always wanted to change the way we do financial services like banking? Or you think there are ways to improve how we do insurances? Join the Services tech to explore and create new solutions in fields like Fintech, Law tech, Insurance Tech and SaaS.</p>
+				</div>
+				<div class="tracks__back">
+					<div>&larr;</div>
+				</div>
+			</div>
+			<div class="tracks__picker">
+				<div data-id="0" class="tracks__picker__each">
+					<span>Smart</span>
+				</div>
+				<div data-id="1" class="tracks__picker__each">
+					<span>Health</span>
+				</div>
+				<div data-id="2" class="tracks__picker__each">
+					<span>Media</span>
+				</div>
+				<div data-id="3" class="tracks__picker__each">
+					<span>Services</span>
+				</div>
 			</div>
 		</div>
 
@@ -190,18 +231,113 @@
 			<div class="back">
 			</div>
 			<h1 class="content__head">Volunteers</h1>
-			<p class="content__text content__text--center">This year, as we're going MEGA, we will have 4 million volunteers!</p>
+			<div class="volunteers__wrap">
+				<ul class="volunteers">
+					<li data-id="0" class="volunteers__each"><img src="./profiles/aleksander.png" alt=""></li>
+					<li data-id="1" class="volunteers__each"><img src="./profiles/geza.png" alt=""></li>
+					<li data-id="2" class="volunteers__each"><img src="./profiles/jernej.png" alt=""></li>
+					<li data-id="3" class="volunteers__each"><img src="./profiles/frederik.jpg" alt=""></li>
+					<li data-id="4" class="volunteers__each"><img src="./profiles/aris.png" alt=""></li>
+					<li data-id="5" class="volunteers__each"><img src="./profiles/amandeep.png" alt=""></li>
+					<li data-id="6" class="volunteers__each"><img src="./profiles/martin.png" alt=""></li>
+					<li data-id="7" class="volunteers__each"><img src="./profiles/ana.png" alt=""></li>
+					<li data-id="8" class="volunteers__each"><img src="./profiles/alex.png" alt=""></li>
+					<li data-id="9" class="volunteers__each"><img src="./profiles/jonas.png" alt=""></li>
+					<li data-id="10" class="volunteers__each"><img src="./profiles/arturs.png" alt=""></li>
+					<li data-id="11" class="volunteers__each"><img src="./profiles/erik.png" alt=""></li>
+					<li data-id="12" class="volunteers__each"><img src="./profiles/julian.png" alt=""></li>
+					<li data-id="13" class="volunteers__each"><img src="./profiles/emil.png" alt=""></li>
+					<li data-id="14" class="volunteers__each"><img src="./profiles/alexandra.png" alt=""></li>
+					<li data-id="15" class="volunteers__each"><img src="./profiles/radoslav.png" alt=""></li>
+					<li data-id="16" class="volunteers__each"><img src="./profiles/sigi.png" alt=""></li>
+					<li data-id="17" class="volunteers__each"><img src="./profiles/thomas.png" alt=""></li>
+					<li data-id="18" class="volunteers__each"><img src="./profiles/boru.png" alt=""></li>
+				</ul>
+			</div>
+			<ul class="volunteers__info">
+				<li class="volunteers__info__each">
+					<h3>Aleksander Bordvik</h3>
+				</li>
+				<li class="volunteers__info__each">
+					<h3>Geza Molnar</h3>
+				</li>
+				<li class="volunteers__info__each">
+					<h3>Jernej Dekleva</h3>
+				</li>
+				<li class="volunteers__info__each">
+					<h3>Frederik Nordahl</h3>
+				</li>
+				<li class="volunteers__info__each">
+					<h3>Aris Kampas</h3>
+				</li>
+				<li class="volunteers__info__each">
+					<h3>Amandeep Amora</h3>
+				</li>
+				<li class="volunteers__info__each">
+					<h3>Martin Danty</h3>
+				</li>
+				<li class="volunteers__info__each">
+					<h3>Ana Carina</h3>
+				</li>
+				<li class="volunteers__info__each">
+					<h3>Alex Felman</h3>
+				</li>
+				<li class="volunteers__info__each">
+					<h3>Jonas Jeppesen</h3>
+				</li>
+				<li class="volunteers__info__each">
+					<h3>Artur Avramenko</h3>
+				</li>
+				<li class="volunteers__info__each">
+					<h3>Erik Fiala</h3>
+				</li>
+				<li class="volunteers__info__each">
+					<h3>Julian Hansen</h3>
+				</li>
+				<li class="volunteers__info__each">
+					<h3>Emil Rosengaard</h3>
+				</li>
+				<li class="volunteers__info__each">
+					<h3>Alexandra Zamfir</h3>
+				</li>
+				<li class="volunteers__info__each">
+					<h3>Radoslav Bali</h3>
+				</li>
+				<li class="volunteers__info__each">
+					<h3>Sigitas Pleikys</h3>
+				</li>
+				<li class="volunteers__info__each">
+					<h3>Thomas Gram</h3>
+				</li>
+				<li class="volunteers__info__each">
+					<h3>Barbora Macs</h3>
+				</li>
+			</ul>
 			<div class="content__tracks">
 
 			</div>
 		</div>
-
-		<div class="content content--tracks">
-			<div class="back">
-			</div>
-			<h1 class="content__head">Sponsors</h1>
+		<div class="content">
+			<h1 class="content__head">Tickets</h1>
+			<p class="content__text content__text--center content__text--center-text">We could wirte 100 reasons why you should buy a ticket for this event, or we could show you a big glowing button instead. (Life-hack: Early bird expires Sept. 30!)</p>
+			<a href="https://www.eventbrite.com/e/startup-weekend-mega-copenhagen-cphsw-tickets-37594819116" target="_blank" class="btn btn-design1">BUY TICKETS NOW</a>
 		</div>
-		<script src="app.js?dieCache1"></script>
+		<div class="content">
+			<h1 class="content__head">Sponsors</h1>
+			<ul class="sponsors">
+				<li class="sponsors__sponsor"><img src="./logo.png" alt=""></li>
+				<li class="sponsors__sponsor"><img src="./sponsors/2.png" alt=""></li>
+				<li class="sponsors__sponsor"><img src="./sponsors/3.png" alt=""></li>
+			</ul>
+
+			<ul class="sponsors-static">
+				<li class="sponsors-static__sponsor"><img src="./logo.png" alt=""></li>
+				<li class="sponsors-static__sponsor"><img src="./sponsors/2.png" alt=""></li>
+				<li class="sponsors-static__sponsor"><img src="./sponsors/3.png" alt=""></li>
+			</ul>
+		</div>
+		<img src="./test.png" alt="" class="overlaytest">
+		<script src="app.js?dieCache4"></script>
 		<!-- Global Site Tag (gtag.js) - Google Analytics -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-106805020-1"></script>
 		<script>
@@ -211,6 +347,5 @@
 
 		  gtag('config', 'UA-106805020-1');
 		</script>
-
 	</body>
 </html>
